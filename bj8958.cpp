@@ -5,30 +5,34 @@
 using namespace std;
 
 int N;
-char a[80];
-int cnt = 0;
-int score;
-int size;
-
+int a[1001];
+int stunum;
+int cnt;
+int sum, avg;
+float per;
 
 int main() {
 	cin >> N;
 	for (int i = 0; i < N; i++) {
-		cin >> a;
-		int size = strlen(a);
-		score = 0, cnt = 0;
-		for (int j = 0; j < size; j++) {
-			if (a[j] == 'O'){
-				cnt += 1;
-				score+= cnt;
-			}
-			else if (a[j] == 'X') {
-				cnt = 0;
-			}
-			else{}
+		for (int j = 0;j < 1001;j++) {
+			cin >> a[j];
 		}
-		cout << score<< '\n';
-		for (int j = 0; j < size; j++) {
+		stunum = a[0];
+		sum = 0; avg = 0;
+		for (int j = 1; j < stunum+1; j++) {
+			sum += a[j];
+		}
+		avg = sum / stunum;
+		for (int j = 1; j < stunum + 1;j++) {
+			if (a[j] >= avg) {
+				cnt++;
+			}
+			else {
+			}
+		}
+		per = cnt / stunum;
+		cout << per<< '\n';
+		for (int j = 0; j < stunum+1; j++) {
 			a[j] = 0;
 		}
 	}
